@@ -29,6 +29,8 @@ namespace AncestryCodeTestBackend.Models
         [Range(1, 5)]
         public int? Experiance { get; set; }
 
+        public string SuggestedImprovements { get; set; }
+
         [DataType(DataType.Url)]
         public string OriginUrl { get; set; }
 
