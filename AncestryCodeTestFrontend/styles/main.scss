@@ -1,2 +1,9 @@
 @import '~foundation-sites/scss/foundation';
-@include foundation-everything;
+//Foundation with flexbox suppoer
+@include foundation-everything(true);
+
+.feedback-survey{
+    .feedback-survey__row{
+        width: 40rem;
+    }
+}

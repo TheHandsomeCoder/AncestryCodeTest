@@ -1,15 +1,66 @@
 <div class="feedback-survey">
-  <form>
-    <div class="row">
-      <div class="medium-6 columns">
-        <label>Input Label
-          <input type="text" placeholder=".medium-6.columns">
+  <form name="surveyForm" ng-submit="vm.validateAndSubmitForm(surveyForm)" novalidate>
+    <div class="row feedback-survey__row">
+      <div class="medium-12 columns">
+        <label>Name *
+          <input name="name" type="text" required placeholder="Name" ng-model="vm.surveyResult.name">
+          <p ng-show="surveyForm.name.$invalid && surveyForm.submitted" class="help-block">Your name is required.</p>
         </label>
       </div>
-      <div class="medium-6 columns">
-        <label>Input Label
-          <input type="text" placeholder=".medium-6.columns">
+      <div class="medium-12 columns">
+        <label>Email *
+          <input type="email" required placeholder="Email"  ng-model="vm.surveyResult.email">
         </label>
+      </div>
+
+      <div class="medium-12 columns">
+        <label>Age
+          <input type="number" placeholder="Age" ng-min="16" ng-max="122" ng-model="vm.surveyResult.email">
+        </label>
+      </div>
+
+      <div class="medium-12 columns">
+       <label>Gender
+        <fieldset>
+            <input id="gender.male" name="gender"    type="radio" ng-model="vm.surveyResult.gender"><label for="gender.male">Male</label>
+            <input id="gender.female" name="gender" type="radio" ng-model="vm.surveyResult.gender"><label for="gender.female">Female</label>
+      </fieldset>
+      </label>
+      </div>
+
+      <div class="medium-12 columns">
+        <label>Country
+        <select>
+          <option value="1">Ireland</option>
+          <option value="2">England</option>
+          <option value="3">Scotland</option>
+          <option value="4">Wales</option>
+        </select>
+        </label>
+      </div>
+
+      <div class="medium-12 columns">
+        <label>
+            Experience rating (scale of 1 - 5)
+           <br/>
+            <input type="range" min="1" max="5" ng-model="vm.surveyResult.experience"/>
+        </label>
+      </div>
+
+      <div class="medium-12 columns">
+        <label>
+            Suggested improvements
+            <textarea placeholder="Tell us your suggested improvements" ng-model="vm.surveyResult.suggestedImprovements"></textarea>
+        </label>
+      </div>
+
+      <div class="medium-12 columns">
+        <label>
+               <input type="hidden" name="originUrl" ng-value="{{vm.surveyResult.originUrl}}}" />
+            </label>
+      </div>
+      <div class="medium-12 columns">
+          <input class="button float-right" type="submit" id="submit" value="Submit Form" />
       </div>
     </div>
   </form>
