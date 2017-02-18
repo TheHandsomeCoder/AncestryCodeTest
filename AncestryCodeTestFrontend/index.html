@@ -1,4 +1,4 @@
-<html ng-app="ancestry-experience-survey">
+<html ng-app="ancestrySurvey">
 
 <head>
   <script src="./dist/bundle.js"></script>
@@ -14,10 +14,8 @@
       </ul>
     </div>
   </div>
-
-  <main ng-controller="SurveyController as vm">
-    <button class="button" ng-click="vm.openNewWindow()">Open New Window</button>
-  </main>
+<a  ui-sref="survey">Click me to see the survey</a>
+ <ui-view></ui-view>
 
 </body>
 </html>
