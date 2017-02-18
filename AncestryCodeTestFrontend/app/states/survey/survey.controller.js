@@ -1,6 +1,8 @@
 export default class SurveyContrller {
     constructor($scope) {
-        this.helloWorld = 'Hello World';
+        this.openNewWindow =  ()  =>{
+            window.open('', '_blank', 'height=570,width=520,scrollbars=yes,status=yes');
+        };
     }
 }
 SurveyContrller.$inject = ['$scope'];
