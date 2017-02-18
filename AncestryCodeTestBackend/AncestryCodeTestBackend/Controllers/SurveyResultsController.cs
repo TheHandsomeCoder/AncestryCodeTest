@@ -36,6 +36,44 @@ namespace AncestryCodeTestBackend.Controllers
             return Ok(surveyResult);
         }
 
+       
+        // POST: api/SurveyResults
+        [ResponseType(typeof(SurveyResult))]
+        public async Task<IHttpActionResult> PostSurveyResult(SurveyResult surveyResult)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            db.SurveyResults.Add(surveyResult);
+            await db.SaveChangesAsync();
+
+            return CreatedAtRoute("DefaultApi", new { id = surveyResult.Id }, surveyResult);
+        }
+
+
+        #region PUT and Delete functions
+        /*
+        We have no need for delete and update currently.
+
+
+        // DELETE: api/SurveyResults/5
+        [ResponseType(typeof(SurveyResult))]
+        public async Task<IHttpActionResult> DeleteSurveyResult(int id)
+        {
+            SurveyResult surveyResult = await db.SurveyResults.FindAsync(id);
+            if (surveyResult == null)
+            {
+                return NotFound();
+            }
+
+            db.SurveyResults.Remove(surveyResult);
+            await db.SaveChangesAsync();
+
+            return Ok(surveyResult);
+        }
+        
         // PUT: api/SurveyResults/5
         [ResponseType(typeof(void))]
         public async Task<IHttpActionResult> PutSurveyResult(int id, SurveyResult surveyResult)
@@ -70,37 +108,8 @@ namespace AncestryCodeTestBackend.Controllers
 
             return StatusCode(HttpStatusCode.NoContent);
         }
-
-        // POST: api/SurveyResults
-        [ResponseType(typeof(SurveyResult))]
-        public async Task<IHttpActionResult> PostSurveyResult(SurveyResult surveyResult)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            db.SurveyResults.Add(surveyResult);
-            await db.SaveChangesAsync();
-
-            return CreatedAtRoute("DefaultApi", new { id = surveyResult.Id }, surveyResult);
-        }
-
-        // DELETE: api/SurveyResults/5
-        [ResponseType(typeof(SurveyResult))]
-        public async Task<IHttpActionResult> DeleteSurveyResult(int id)
-        {
-            SurveyResult surveyResult = await db.SurveyResults.FindAsync(id);
-            if (surveyResult == null)
-            {
-                return NotFound();
-            }
-
-            db.SurveyResults.Remove(surveyResult);
-            await db.SaveChangesAsync();
-
-            return Ok(surveyResult);
-        }
+        */
+        #endregion
 
         protected override void Dispose(bool disposing)
         {
