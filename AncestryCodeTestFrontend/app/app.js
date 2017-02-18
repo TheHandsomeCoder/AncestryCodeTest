@@ -1,4 +1,7 @@
 import '../styles/main.scss';
 import angular from 'angular';
 
-angular.module('ancestry-experiance-survey', []);
+import SurveyController from './states/survey/survey.controller.js';
+
+angular.module('ancestry-experience-survey', [])
+.controller('SurveyController', SurveyController);
