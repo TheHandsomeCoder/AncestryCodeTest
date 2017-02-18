@@ -27,7 +27,7 @@ namespace AncestryCodeTestBackend.Models
         public string Country { get; set; }
 
         [Range(1, 5)]
-        public int? Experiance { get; set; }
+        public int? Experience { get; set; }
 
         public string SuggestedImprovements { get; set; }
 
