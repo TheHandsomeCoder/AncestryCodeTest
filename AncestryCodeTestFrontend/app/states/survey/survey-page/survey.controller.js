@@ -1,6 +1,6 @@
 export default class SurveyController {
 
-    constructor(CountriesList, SurveyResultAPI, $state) {
+    constructor(CountriesList, SurveyResultAPI, $state, $stateParams) {
         this.$state = $state;
         this.countriesList = CountriesList.getCountries();
         this.SurveyResultAPI = SurveyResultAPI;
@@ -12,7 +12,7 @@ export default class SurveyController {
             "country": null,
             "experience": null,
             "suggestedImprovements": null,
-            "originUrl": null,
+            "originUrl": $stateParams.originUrl || null,
         };
     }
 
@@ -32,4 +32,4 @@ export default class SurveyController {
     }
 }
 
-SurveyController.$inject = ['CountriesListService', 'SurveyResultAPI', '$state'];
+SurveyController.$inject = ['CountriesListService', 'SurveyResultAPI', '$state', '$stateParams'];
