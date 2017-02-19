@@ -38,7 +38,7 @@
         <label>
             Experience rating (scale of 1 - 5)
            <br/>
-            <input type="range" min="1" max="5" ng-model="vm.surveyResult.experience"/>
+            <input type="range" min="1" max="5" ng-model="vm.surveyResult.experience"/> {{(vm.surveyResult.experience)}}
         </label>
       </div>
 
@@ -51,7 +51,7 @@
 
       <div class="medium-12 columns">
         <label>
-               <input type="hidden" name="originUrl" ng-value="{{vm.surveyResult.originUrl}}" />
+               <input type="hidden" name="originUrl" value="{{vm.surveyResult.originUrl}}" />
             </label>
       </div>
       <div class="medium-12 columns">

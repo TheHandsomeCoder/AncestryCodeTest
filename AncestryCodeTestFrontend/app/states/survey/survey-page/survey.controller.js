@@ -4,6 +4,7 @@ export default class SurveyController {
         this.$state = $state;
         this.countriesList = CountriesList.getCountries();
         this.SurveyResultAPI = SurveyResultAPI;
+        this.$stateParams = $stateParams;
         this.surveyResult = {
             "name": null,
             "emailAddress": null,
