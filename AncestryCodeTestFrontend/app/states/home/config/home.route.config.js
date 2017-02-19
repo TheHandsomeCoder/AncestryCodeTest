@@ -20,19 +20,19 @@ export default function routes($stateProvider) {
       `
     })
     .state('home.one', {
-      url: '/home/1',
+      url: '/1',
       template: require('../home.html'),
       controller: 'HomeController',
       controllerAs: 'vm'
     })
     .state('home.two', {
-      url: '/home/two',
+      url: '/two',
       template: require('../home.html'),
       controller: 'HomeController',
       controllerAs: 'vm'
     })
     .state('home.three', {
-      url: '/home/3',
+      url: '/3',
       template: require('../home.html'),
       controller: 'HomeController',
       controllerAs: 'vm'
