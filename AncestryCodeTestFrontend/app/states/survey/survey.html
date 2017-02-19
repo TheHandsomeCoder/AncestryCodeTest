@@ -9,33 +9,28 @@
       </div>
       <div class="medium-12 columns">
         <label>Email *
-          <input type="email" required placeholder="Email"  ng-model="vm.surveyResult.email">
+          <input type="email" required placeholder="Email"  ng-model="vm.surveyResult.emailAddress">
         </label>
       </div>
 
       <div class="medium-12 columns">
         <label>Age
-          <input type="number" placeholder="Age" ng-min="16" ng-max="122" ng-model="vm.surveyResult.email">
+          <input type="number" placeholder="Age" ng-min="16" ng-max="122" ng-model="vm.surveyResult.age">
         </label>
       </div>
 
       <div class="medium-12 columns">
        <label>Gender
         <fieldset>
-            <input id="gender.male" name="gender"    type="radio" ng-model="vm.surveyResult.gender"><label for="gender.male">Male</label>
-            <input id="gender.female" name="gender" type="radio" ng-model="vm.surveyResult.gender"><label for="gender.female">Female</label>
+           <input id="gender.male"  type="radio" ng-model="vm.surveyResult.gender" value="male"> <label for="gender.male">Male</label>
+           <input id="gender.female"type="radio" ng-model="vm.surveyResult.gender" value="female"> <label for="gender.female">Female</label>
       </fieldset>
       </label>
       </div>
 
       <div class="medium-12 columns">
         <label>Country
-        <select>
-          <option value="1">Ireland</option>
-          <option value="2">England</option>
-          <option value="3">Scotland</option>
-          <option value="4">Wales</option>
-        </select>
+         <select ng-options="country.code as country.name for country in vm.countriesList" ng-model="vm.surveyResult.country"></select>
         </label>
       </div>
 
@@ -56,7 +51,7 @@
 
       <div class="medium-12 columns">
         <label>
-               <input type="hidden" name="originUrl" ng-value="{{vm.surveyResult.originUrl}}}" />
+               <input type="hidden" name="originUrl" ng-value="{{vm.surveyResult.originUrl}}" />
             </label>
       </div>
       <div class="medium-12 columns">
@@ -64,4 +59,6 @@
       </div>
     </div>
   </form>
+
+  {{vm.surveyResult | json}}
 </div>

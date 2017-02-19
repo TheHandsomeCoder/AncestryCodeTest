@@ -7,3 +7,4 @@ import survey from './states/survey'
 
 angular.module('ancestrySurvey', ['ui.router', 'app.survey'])
 .config(routes)
+.constant("api-endpoint", "http://localhost:5555/api")
