@@ -1,64 +1,59 @@
-<div class="feedback-survey">
-  <form name="surveyForm" ng-submit="vm.validateAndSubmitForm(surveyForm)" novalidate>
-    <div class="row feedback-survey__row">
-      <div class="medium-12 columns">
-        <label>Name *
-          <input name="name" type="text" required placeholder="Name" ng-model="vm.surveyResult.name">
-          <p ng-show="surveyForm.name.$invalid && surveyForm.submitted" class="help-block">Your name is required.</p>
-        </label>
-      </div>
-      <div class="medium-12 columns">
-        <label>Email *
-          <input type="email" required placeholder="Email"  ng-model="vm.surveyResult.emailAddress">
-        </label>
-      </div>
+<div class="marketing-page">
+  <h2>This is the marketing summary page</h2>
 
-      <div class="medium-12 columns">
-        <label>Age
-          <input type="number" placeholder="Age" ng-min="16" ng-max="122" ng-model="vm.surveyResult.age">
-        </label>
+  <div class="row">
+    <div class="medium-4 columns">
+      <label><h5>Average Age</h5> </label> {{vm.marketingSummary.AverageAgeOfResponders | number : 2}}
+    </div>
+    <div class="medium-4 columns">
+      <label><h5>Average Experiance</h5> </label> {{vm.marketingSummary.AverageExperianceOfResponders | number : 2}}
+    </div>
+    <div class="medium-4 columns">
+      <label><h5>Total Responders</h5></label> {{vm.marketingSummary.TotalNumberOfResults}}
+    </div>
+    <br/>
+    <div class="medium-12 columns">
+      <label><h5>Country Distribution</h5> </label>
+      <div>
+        <table>
+          <thead>
+            <tr>
+              <th>Country</th>
+              <th>Count</th>
+              <th>Percentage</th>
+            </tr>
+          </thead>
+            <tbody>
+            <tr ng-repeat="dist in vm.marketingSummary.CountryDistribution | orderBy:'-Count'">
+              <td>{{dist.Country || "Not Specified"}}</td>
+              <td>{{dist.Count}}</td>
+              <td>{{(dist.Count / vm.marketingSummary.TotalNumberOfResults) * 100 | number : 2}}</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-
-      <div class="medium-12 columns">
-       <label>Gender
-        <fieldset>
-           <input id="gender.male"  type="radio" ng-model="vm.surveyResult.gender" value="male"> <label for="gender.male">Male</label>
-           <input id="gender.female"type="radio" ng-model="vm.surveyResult.gender" value="female"> <label for="gender.female">Female</label>
-      </fieldset>
-      </label>
-      </div>
-
-      <div class="medium-12 columns">
-        <label>Country
-         <select ng-options="country.code as country.name for country in vm.countriesList" ng-model="vm.surveyResult.country"></select>
-        </label>
-      </div>
-
-      <div class="medium-12 columns">
-        <label>
-            Experience rating (scale of 1 - 5)
-           <br/>
-            <input type="range" min="1" max="5" ng-model="vm.surveyResult.experience"/> {{(vm.surveyResult.experience)}}
-        </label>
-      </div>
-
-      <div class="medium-12 columns">
-        <label>
-            Suggested improvements
-            <textarea placeholder="Tell us your suggested improvements" ng-model="vm.surveyResult.suggestedImprovements"></textarea>
-        </label>
-      </div>
-
-      <div class="medium-12 columns">
-        <label>
-               <input type="hidden" name="originUrl" value="{{vm.surveyResult.originUrl}}" />
-            </label>
-      </div>
-      <div class="medium-12 columns">
-          <input class="button float-right" type="submit" id="submit" value="Submit Form" />
+      <br/>
+    </div>
+    <div class="medium-12 columns">
+      <label><h5>Gender Distribution</h5> </label>
+      <div>
+        <table>
+          <thead>
+            <tr>
+              <th>Gender</th>
+              <th>Count</th>
+              <th>Percentage</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="dist in vm.marketingSummary.GenderDistribution | orderBy:'-Count'">
+              <td>{{vm.parseGender(dist.Gender)}}</td>
+              <td>{{dist.Count}}</td>
+              <td>{{(dist.Count / vm.marketingSummary.TotalNumberOfResults) * 100 | number : 2}}</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
-  </form>
-
-  {{vm.surveyResult | json}}
+  </div>
 </div>

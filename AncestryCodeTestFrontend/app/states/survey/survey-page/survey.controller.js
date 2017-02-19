@@ -28,8 +28,8 @@ export default class SurveyController {
              this.$state.go('survey-thanks', {'originUrl': this.surveyResult.originUrl});
        })
        .catch((error) => {
-              debugger;
-       })
+              console.error(error);
+       });
     }
 }
 

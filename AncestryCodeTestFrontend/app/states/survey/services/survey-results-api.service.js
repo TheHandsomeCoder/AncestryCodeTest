@@ -8,7 +8,7 @@ export default class SurveyResultAPI {
 
   createSurveyResult(surveyResult){
 
-    return this.$http.post(`${this.apiEndpoint}/SurveyResults`,surveyResult)
+    return this.$http.post(`${this.apiEndpoint}/SurveyResults`,surveyResult);
 
   }
   getSurveyResults(){}

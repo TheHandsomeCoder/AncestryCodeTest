@@ -7,7 +7,7 @@ export default class MarketingSummaryAPI {
   }
 
   getMarketingSummary(MarketingSummary) {
-    return this.$http.post(`${this.apiEndpoint}/MarketingSummary`)
+    return this.$http.get(`${this.apiEndpoint}/MarketingSummary`);
   }
 
 
