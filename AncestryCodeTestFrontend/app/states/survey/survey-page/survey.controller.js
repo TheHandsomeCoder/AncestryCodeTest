@@ -25,7 +25,7 @@ export default class SurveyController {
 
        this.SurveyResultAPI.createSurveyResult(this.surveyResult)
        .then((result) => {
-             this.$state.go('survey-thanks', result.data);
+             this.$state.go('survey-thanks', {'originUrl': this.surveyResult.originUrl});
        })
        .catch((error) => {
               debugger;

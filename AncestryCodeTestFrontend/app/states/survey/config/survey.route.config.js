@@ -12,6 +12,9 @@ export default function routes($stateProvider) {
       url: '/thank-you',
       template: require('../thank-you-page/thank-you.html'),
       controller: 'ThankYouController',
-      controllerAs: 'vm'
+      controllerAs: 'vm',
+      params: {
+           originUrl: null
+      },
     });
 }
