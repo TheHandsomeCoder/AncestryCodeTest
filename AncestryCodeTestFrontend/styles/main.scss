@@ -2,8 +2,6 @@
 //Foundation with flexbox suppoer
 @include foundation-everything(true);
 
-.feedback-survey{
-    .feedback-survey__row{
+.main-wrapper{
         width: 40rem;
-    }
 }

@@ -1,6 +1,7 @@
-export default class SurveyContrller {
+export default class SurveyController {
 
-    constructor(CountriesList, SurveyResultAPI) {
+    constructor(CountriesList, SurveyResultAPI, $state) {
+        this.$state = $state;
         this.countriesList = CountriesList.getCountries();
         this.SurveyResultAPI = SurveyResultAPI;
         this.surveyResult = {
@@ -23,7 +24,7 @@ export default class SurveyContrller {
 
        this.SurveyResultAPI.createSurveyResult(this.surveyResult)
        .then((result) => {
-            debugger;
+             this.$state.go('survey-thanks', result.data);
        })
        .catch((error) => {
               debugger;
@@ -31,4 +32,4 @@ export default class SurveyContrller {
     }
 }
 
-SurveyContrller.$inject = ['CountriesListService', 'SurveyResultAPI'];
+SurveyController.$inject = ['CountriesListService', 'SurveyResultAPI', '$state'];
