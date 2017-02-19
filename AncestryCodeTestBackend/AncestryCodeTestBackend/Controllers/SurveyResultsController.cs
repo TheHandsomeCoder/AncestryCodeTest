@@ -52,7 +52,6 @@ namespace AncestryCodeTestBackend.Controllers
             return CreatedAtRoute("DefaultApi", new { id = surveyResult.Id }, surveyResult);
         }
 
-
         #region PUT and Delete functions
         /*
         We have no need for delete and update currently.
