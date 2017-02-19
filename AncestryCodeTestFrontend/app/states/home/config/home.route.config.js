@@ -12,9 +12,11 @@ export default function routes($stateProvider) {
                 <a  ui-sref="home.two" class="button">Page Two</a>
                 <a  ui-sref="home.three" class="button">Page Three</a>
               </div>
-              <ui-view></ui-view>
             </div>
-          </div>
+             <div class="medium-12 columns">
+                <ui-view></ui-view>
+            </div>
+           </div>
       `
     })
     .state('home.one', {
