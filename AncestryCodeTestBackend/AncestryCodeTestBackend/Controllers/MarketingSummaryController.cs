@@ -25,8 +25,8 @@ namespace AncestryCodeTestBackend.Controllers
                 TotalNumberOfResults = result.Count(),
                 AverageAgeOfResponders = result.Average(SurveyResult => SurveyResult.Age),
                 AverageExperianceOfResponders = result.Average(SurveyResult => SurveyResult.Experience),
-                CountryDistribution = result.GroupBy(SurveyResult => SurveyResult.Country).Select(x => new { Country = x.Key, Count = x.Count() }).ToList(),
-                GenderDistribution =  result.GroupBy(SurveyResult => SurveyResult.Gender).Select(x => new { Gender = x.Key, Count = x.Count() }).ToList()
+                CountryDistribution = result.GroupBy(SurveyResult => SurveyResult.Country).Select(x => new CountryDistributionDTO{ Country = x.Key, Count = x.Count() }).ToList(),
+                GenderDistribution =  result.GroupBy(SurveyResult => SurveyResult.Gender).Select(x => new GenderDistributionDTO{ Gender = x.Key, Count = x.Count() }).ToList()
             };
 
             return Ok(dto);
