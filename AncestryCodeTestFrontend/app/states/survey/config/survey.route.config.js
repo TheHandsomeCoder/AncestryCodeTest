@@ -3,7 +3,7 @@ routes.$inject = ['$stateProvider'];
 export default function routes($stateProvider) {
   $stateProvider
     .state('survey', {
-      url: '/experiance-survey',
+      url: '/experiance-survey?originUrl',
       template: require('../survey-page/survey.html'),
       controller: 'SurveyController',
       controllerAs: 'vm'
