@@ -1,22 +1,24 @@
 <div class="feedback-survey">
   <form name="surveyForm" ng-submit="vm.validateAndSubmitForm(surveyForm)" novalidate>
     <div class="row feedback-survey__row">
-      <div class="medium-12 columns">
+      <div class="medium-12 columns" ng-class="{invalid : surveyForm.name.$invalid}">
         <label>Name *
           <input name="name" type="text" required placeholder="Name" ng-model="vm.surveyResult.name">
           <p ng-show="surveyForm.name.$invalid && surveyForm.submitted" class="help-block">Your name is required.</p>
         </label>
       </div>
-      <div class="medium-12 columns">
+      <div class="medium-12 columns" ng-class="{invalid : surveyForm.email.$invalid}">
         <label>Email *
-          <input type="email" required placeholder="Email"  ng-model="vm.surveyResult.emailAddress">
+          <input type="email" required placeholder="Email" name="email"  ng-model="vm.surveyResult.emailAddress">
         </label>
+         <p ng-show="surveyForm.email.$invalid && surveyForm.submitted" class="help-block">Your email is required.</p>
       </div>
 
-      <div class="medium-12 columns">
+      <div class="medium-12 columns" ng-class="{invalid : surveyForm.age.$invalid}">
         <label>Age
-          <input type="number" placeholder="Age" ng-min="16" ng-max="122" ng-model="vm.surveyResult.age">
+          <input type="number" placeholder="Age" ng-min="16" ng-max="122" ng-model="vm.surveyResult.age" name="age">
         </label>
+         <p ng-show="surveyForm.age.$invalid && surveyForm.submitted" class="help-block">Your age must be between 16 and 122.</p>
       </div>
 
       <div class="medium-12 columns">
@@ -59,6 +61,4 @@
       </div>
     </div>
   </form>
-
-  {{vm.surveyResult | json}}
 </div>

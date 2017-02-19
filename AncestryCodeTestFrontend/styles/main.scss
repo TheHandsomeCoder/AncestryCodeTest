@@ -5,3 +5,8 @@
 .main-wrapper{
         width: 60rem;
 }
+
+//Make the help test red on error pages
+.ng-invalid .help-block{
+        color:red;
+}
